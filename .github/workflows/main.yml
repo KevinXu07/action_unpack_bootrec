@@ -1,5 +1,6 @@
 name: Unpack boot/rec
-
+permissions:
+  contents: write
 on:
   workflow_dispatch:
     inputs:
