@@ -32,12 +32,6 @@ jobs:
     - name: Start unpack
       run: |
         abootimg -x new_boot.img
-        mkdir initrd
-        mv initrd.img initrd
-        cd initrd
-        abootimg -unpack -initrd initrd.img
-        sudo rm -rf initrd.img
-        cd ..
         sudo rm -rf new_boot.img
         cd ..
     - name: ZIP unpack files
