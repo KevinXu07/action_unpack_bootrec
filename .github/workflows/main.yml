@@ -26,13 +26,20 @@ jobs:
       
     - name: Download boot or recovery img
       run: |
+        cd unpack
         aria2c "${{ github.event.inputs.IMG_URL }}"
         ls
       
     - name: Start unpack
       run: |
-        abootimg -x new_boot.img unpack
-        abootimg -unpack -initrd unpack/initrd.img unpack/initrd
+        abootimg -x new_boot.img
+        mv initrd.img initrd/initrd.img
+        cd initrd
+        abootimg -unpack -initrd initrd.img
+        sudo rm -rf initrd.img
+        cd ..
+        sudo rm -rf new_boot.img
+        cd ..
     - name: ZIP unpack files
       run: |
         zip -r unpack.zip ./unpack
