@@ -31,7 +31,7 @@ jobs:
       
     - name: Start unpack
       run: |
-        abootimg -x *.img unpack
+        abootimg -x new_boot.img unpack
         abootimg -unpack -initrd unpack/initrd.img unpack/initrd
     - name: ZIP unpack files
       run: |
