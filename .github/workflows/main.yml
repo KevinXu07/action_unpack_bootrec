@@ -32,7 +32,7 @@ jobs:
       
     - name: Start unpack
       run: |
-        abootimg -x new_boot.imgnew_boot.img
+        abootimg -x new_boot.img
         sleep 20s
         sudo rm -rf new_boot.img
         cd ..
