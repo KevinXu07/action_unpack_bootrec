@@ -32,7 +32,7 @@ jobs:
     - name: Start unpack
       run: |
         abootimg -x *.img unpack
-        abootimg -unpack -initrd initrd.img unpack/initrd
+        abootimg -unpack -initrd unpack/initrd.img unpack/initrd
     - name: ZIP unpack files
       run: |
         zip -r unpack.zip ./unpack
